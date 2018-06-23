@@ -1,0 +1,205 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 500px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+nav
+	width: 100%
+	background-color: $green
+	color: $accent
+	text-transform: uppercase
+	margin-bottom: -16px
+
+	a
+		color: $accent
+		display: block
+		padding: 30px
+
+		transition: .2s
+		&:hover
+			text-decoration: none
+			color: $accent
+			background-color: $accent2
+	ul
+		list-style-type: none
+		text-align: right
+	li
+		display: inline-block
+	p
+		padding: 18px 0 10px 50px
+		font-weight: 800
+		font-size: 24px
+		line-height: 1
+		background-image: url(../img/izumrud.png)
+		background-position: left center
+		background-size: 40px
+		background-repeat: no-repeat
+
+
+		// max-width: 300px
+
+.logo
+	width: 240px
+	float: left
+	height: 85px
+
+
+.menu-trigger
+	text-align: center
+	border-bottom: 1px $accent solid
+	display: none
+.slider
+	margin-bottom: 100px
+.slide
+	&-1
+		height: 500px
+		background-image: url(../img/ban1.jpg)
+		background-position: center top
+		display: -webkit-flex
+		display: -ms-flex
+		display: flex
+		align-items: center
+		text-align: center
+		&-text
+			margin-left: 39%
+			width: 400px
+			background-color: rgba($accent, .97)
+			font-size: 24px
+			padding: 25px
+	&-2
+		height: 500px
+		background-image: url(../img/ban2.jpg)
+		background-position: center top
+		display: -webkit-flex
+		display: -ms-flex
+		display: flex
+		align-items: center
+		text-align: center
+	&-3
+		height: 500px
+		background-image: url(../img/ban3.jpg)
+		background-position: center top
+		display: -webkit-flex
+		display: -ms-flex
+		display: flex
+		align-items: center
+		text-align: center
+.aboutemerald
+		width: 200px
+		height: 200px
+		margin: auto
+		border-radius: 100%
+		background-position: center
+		background-size: 100%
+		background-repeat: no-repeat
+		transition: .3s
+		&:hover
+			background-size: 120%
+			background-position: center
+.owl
+	&-nav
+		font-size: 126px
+		margin-top: 0
+		color: $green
+		line-height: 0em
+		// position: absolute
+	&-prev
+		top: 40% !important
+		left: 1%
+		font-size: 52px !important
+		position: absolute
+		transition: .2s
+		&:hover
+			color: lighten($green, 15%) !important
+			background: none !important
+	&-next
+		top: 40% !important
+		font-size: 52px !important
+		right: 1%
+		position: absolute
+		transition: .2s
+		&:hover
+			color: lighten($green, 15%) !important
+			background: none !important
+	&-dots
+		margin-top: -35px
+		position: relative
+		// pointer-events: none
+		z-index: 9999
+	&-dot
+.owl-theme .owl-dots .owl-dot span
+	background: lighten($green, 20)
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span
+	background: darken($green, 10)
+
+
+.abt
+	&-1
+		background-image: url(../img/emeralds.jpg)
+	&-2
+		background-image: url(../img/syntetic.jpg)
+	&-3
+		background-image: url(../img/map.jpg)
+.footer
+	margin-top: 100px
+	display: -webkit-flex
+	display: -ms-flex
+	display: flex
+.cprt
+	text-align: center
+footer
+	width: 100%
+	background-color: $green
+	color: $accent
+	text-transform: uppercase
+	margin-bottom: -16px
+
+	a
+		color: $accent
+		display: block
+		padding: 10px
+
+		transition: .2s
+		&:hover
+			text-decoration: none
+			color: $accent
+			background-color: $accent2
+	ul
+		list-style-type: none
+		text-align: right
+	li
+		display: inline-block
+	p
+		float:
+		padding: 10px
+		width: 200px
+@import "media" // Always at the end

@@ -9,6 +9,9 @@ var gulp          = require('gulp'),
 		cleancss      = require('gulp-clean-css'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
+		cache          = require('gulp-cache'),
+		imagemin       = require('gulp-imagemin'),
+		del            = require('del'),
 		notify        = require("gulp-notify"),
 		rsync         = require('gulp-rsync');
 
@@ -25,7 +28,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('styles', function() {
-	return gulp.src('app/'+syntax+'/**/*.'+syntax+'')
+	return gulp.src('app/'+syntax+'/**/*.'+syntax+'',)
 	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
 	.pipe(rename({ suffix: '.min', prefix : '' }))
 	.pipe(autoprefixer(['last 15 versions']))
@@ -33,6 +36,15 @@ gulp.task('styles', function() {
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.stream())
 });
+// gulp.task('sass', function() {
+// 	return gulp.src('app/sass/**/*.sass')
+// 	.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
+// 	.pipe(rename({suffix: '.min', prefix : ''}))
+// 	.pipe(autoprefixer(['last 15 versions']))
+// 	.pipe(cleanCSS()) // Опционально, закомментировать при отладке
+// 	.pipe(gulp.dest('app/css'))
+// 	.pipe(browserSync.reload({stream: true}));
+// });
 
 gulp.task('js', function() {
 	return gulp.src([
@@ -41,9 +53,35 @@ gulp.task('js', function() {
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
+	.pipe(uglify()) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
+});
+gulp.task('imagemin', function() {
+	return gulp.src('app/img/**/*')
+	.pipe(cache(imagemin())) // Cache Images
+	.pipe(gulp.dest('dist/img')); 
+});
+gulp.task('removedist', function() { return del.sync('dist'); });
+gulp.task('build', ['removedist', 'imagemin', 'styles', 'js'], function() {
+
+	var buildFiles = gulp.src([
+		'app/*.html',
+		'app/.htaccess',
+		]).pipe(gulp.dest('dist'));
+
+	var buildCss = gulp.src([
+		'app/css/main.min.css',
+		]).pipe(gulp.dest('dist/css'));
+
+	var buildJs = gulp.src([
+		'app/js/scripts.min.js',
+		]).pipe(gulp.dest('dist/js'));
+
+	var buildFonts = gulp.src([
+		'app/fonts/**/*',
+		]).pipe(gulp.dest('dist/fonts'));
+
 });
 
 gulp.task('rsync', function() {

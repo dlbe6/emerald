@@ -6,8 +6,8 @@
 	color: #666
 
 ::selection
-	background-color: $accent
-	color: #fff
+	background-color: $green
+	color: $accent
 
 body
 	font-size: 16px
@@ -81,7 +81,7 @@ nav
 			margin-right: 10px
 	a
 		&:hover
-			background-color: $green
+			background-color: rgba($green, 0)
 .menu-trigger
 	text-align: center
 	border-bottom: 1px $accent solid
@@ -91,7 +91,8 @@ nav
 .slide
 	&-1
 		height: 500px
-		background-image: url(../img/ban1.jpg)
+		background-image: url(../img/ban1.jpg) 
+		background-repeat: no-repeat
 		background-position: center top
 		display: -webkit-flex
 		display: -ms-flex
@@ -106,7 +107,8 @@ nav
 			padding: 25px
 	&-2
 		height: 500px
-		background-image: url(../img/ban2.jpg)
+		background-image: url(../img/ban2.jpg) 
+		background-repeat: no-repeat
 		background-position: center top
 		display: -webkit-flex
 		display: -ms-flex
@@ -115,7 +117,8 @@ nav
 		text-align: center
 	&-3
 		height: 500px
-		background-image: url(../img/ban3.jpg)
+		background-image: url(../img/ban3.jpg) 
+		background-repeat: no-repeat
 		background-position: center top
 		display: -webkit-flex
 		display: -ms-flex
@@ -221,4 +224,33 @@ nav
 		color: $accent
 .innertext
 	margin-top: 70px
+.oglav
+	float: right
+	min-width: 200px
+	background-color: $accent
+	margin: 0 30px
+	padding: 10px 20px 0px 10px
+caption
+	caption-side: top
+	text-align: center
+	color: #333
+	text-transform: uppercase
+	font-weight: 800
+.examples
+	img
+		width: 250px
+		box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, .3)
+		margin: 20px
+		transition: .2s 
+		&:hover
+			transform: scale(1.1)
+.catalog
+	margin-top: 70px
+	&-item
+		// border: solid
+		box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, .3)
+		padding: 5px
+		// margin: 5px
+		
+	
 @import "media" // Always at the end

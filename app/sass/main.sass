@@ -257,6 +257,19 @@ caption
 .h2why
 	margin-bottom: 50px
 	font-size: 32px
+	text-transform: uppercase
+span.h2why-bg
+	margin-bottom: 50px
+	position: relative
+	font-size: 32px
+	text-transform: uppercase
+	background-color: $green
+	color: #fff
+	padding: 5px 20px
+	
+
+	
+
 .advimg
 	transition: .3s
 	&:hover
@@ -268,8 +281,16 @@ caption
 	background: transparent
 	padding-top: 20px
 	min-height: 240px
-	color: #fff
+	// color: #fff
 	&>.container
 
-
-@import "media" // Always at the end
+.chars
+	background: $accent2
+	position: relative
+	transform: skewY(-5.5deg)
+	padding: 60px 0px
+	margin-bottom: 100px
+	margin-top: -45px
+	z-index: -9999 !important
+	&>.container
+		transform: skewY(5.5deg)
